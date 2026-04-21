@@ -507,8 +507,8 @@ def run_sftp_scan(creds: dict, log_q: queue.Queue, result_q: queue.Queue) -> Non
     port  = int(creds.get("port", 22))
     user  = creds["user"]
     pwd   = creds["password"]
-    staging = Path(creds.get("staging", "./data/raw"))
-
+    staging = Path("/tmp/data/raw")
+    
     log_q.put(("info", f"Connecting to {host}:{port} as {user}…"))
 
     transport = None
